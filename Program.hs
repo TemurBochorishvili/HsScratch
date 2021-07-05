@@ -2,6 +2,7 @@
 -- pure  :: a -> f a
 -- (<$>) :: (a -> b) -> f a -> f b -------- fmap
 -- (<*>) :: f (a -> b) -> f a -> f b ------ apply
+-- liftA2:: (a -> b -> c) -> f a -> f b -> f c
 -- (>>=) :: m a -> (a -> m b) -> m b ------ bind
 -- const :: a -> b -> a -- returns first argument
 -- ?Pointless? const
