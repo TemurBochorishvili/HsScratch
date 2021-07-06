@@ -1,9 +1,15 @@
 -- ($)   :: (a -> b) -> a -> b -------- map
--- pure  :: a -> f a
--- (<$>) :: (a -> b) -> f a -> f b -------- fmap
--- (<*>) :: f (a -> b) -> f a -> f b ------ apply
--- liftA2:: (a -> b -> c) -> f a -> f b -> f c
--- (>>=) :: m a -> (a -> m b) -> m b ------ bind
+-- Functors
+    -- (<$>) :: (a -> b) -> f a -> f b -------- fmap
+    -- (<$ ) :: a -> f b -> f a  ------- mapTo
+
+-- Applicative
+    -- pure  :: a -> f a
+    -- (<*>) :: f (a -> b) -> f a -> f b ------ apply
+    -- liftA2:: (a -> b -> c) -> f a -> f b -> f c
+-- Monad
+    -- (>>=) :: m a -> (a -> m b) -> m b ------ bind
+
 -- const :: a -> b -> a -- returns first argument
 -- ?Pointless? const
 -- ?Pointfull? const
@@ -39,6 +45,7 @@ instance (Ord entityTarget) => Applicative (ViewInfo entityTarget) where
               entityTargets = mappend (appling & entityTargets) (viewInfo & entityTargets) }
 
     liftA2 f viewInfo1 viewInfo2 =
+        -- (f (<$>) viewInfo1) (<*>) viewInfo2
         ViewInfo
             { view = f (viewInfo1 & view) (viewInfo2 & view),
               entityTargets = mappend (viewInfo1 & entityTargets) (viewInfo2 & entityTargets) }
