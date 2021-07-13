@@ -7,6 +7,15 @@
     -- pure  :: a -> f a
     -- (<*>) :: f (a -> b) -> f a -> f b ------ apply
     -- liftA2:: (a -> b -> c) -> f a -> f b -> f c
+    -- *>    :: f a -> f b -> f b ------------- rightApply
+        -- liftA2 (\_ b -> b) fa fb და რატომ არა პირდაპირ fb
+            -- liftA2 flip const
+        -- [ 1 :. 2 :. 3 :. Nil ] *> [ 4 :. 5 :. Nil ] რატომ  [ 4, 5, 4, 5, 4, 5]
+        --
+    -- <*    :: f a -> f b -> f a ------------- leftApply
+        -- liftA2 const
+        -- [ 1 :. 2 :. 3 :. Nil ] *> [ 4 :. 5 :. Nil ] რატომ  [ 1, 1, 2, 2, 3, 3]
+    -- sequence :: foldRight (liftA2 (:.)) (pure :. Nil)
 -- Monad
     -- (>>=) :: m a -> (a -> m b) -> m b ------ bind
 
