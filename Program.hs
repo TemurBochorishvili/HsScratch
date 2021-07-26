@@ -1,11 +1,13 @@
+-- Covariant, Contravariant, Invariant
+
 -- ($)   :: (a -> b) -> a -> b -------- map
 -- Functors
-    -- (<$>) :: (a -> b) -> f a -> f b -------- fmap
+    -- (<$>) :: (a -> b) -> f a -> f b -------- fmap (Covariant functor)
     -- (<$ ) :: a -> f b -> f a  ------- mapTo
 
 -- Applicative
     -- pure  :: a -> f a
-    -- (<*>) :: f (a -> b) -> f a -> f b ------ apply
+    -- (<*>) :: f (a -> b) -> f a -> f b ------ apply (Applicative functor)
     -- liftA2:: (a -> b -> c) -> f a -> f b -> f c
     -- *>    :: f a -> f b -> f b ------------- rightApply
         -- liftA2 (\_ b -> b) fa fb და რატომ არა პირდაპირ fb
@@ -17,7 +19,8 @@
         -- [ 1 :. 2 :. 3 :. Nil ] *> [ 4 :. 5 :. Nil ] რატომ  [ 1, 1, 2, 2, 3, 3]
     -- sequence :: foldRight (liftA2 (:.)) (pure :. Nil)
 -- Monad
-    -- (>>=) :: m a -> (a -> m b) -> m b ------ bind
+    -- (>>=) :: (a -> m b) -> m a -> m b ------ bind (Monadic functor)
+    --       :: (m a -> b) -> m a -> m b ------ coBind (extend) (Co Monad)
 
 -- const :: a -> b -> a -- returns first argument
 -- ?Pointless? const
@@ -107,11 +110,11 @@ data AppEntityTarget
 
 
 
-headOr :: a -> List a -> a
-headOr a (x :. xs) =
-    _todo1
-headOr a Nil =
-    _todo2
+-- headOr :: a -> List a -> a
+-- headOr a (x :. xs) =
+--     _todo1
+-- headOr a Nil =
+--     _todo2
 
 
 viewInfo1 =
