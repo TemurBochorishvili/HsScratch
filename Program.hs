@@ -1,5 +1,7 @@
 -- Covariant, Contravariant, Invariant
 
+-- Curring (Every function takes one argument)
+
 -- ($)   :: (a -> b) -> a -> b -------- map
 -- Functors
     -- (<$>) :: (a -> b) -> f a -> f b -------- fmap (Covariant functor)
