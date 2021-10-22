@@ -21,6 +21,7 @@
         -- [ 1 :. 2 :. 3 :. Nil ] *> [ 4 :. 5 :. Nil ] რატომ  [ 1, 1, 2, 2, 3, 3]
     -- sequence :: foldRight (liftA2 (:.)) (pure :. Nil)
 -- Monad
+    -- =<<
     -- (>>=) :: (a -> m b) -> m a -> m b ------ bind (Monadic functor)
     --       :: (m a -> b) -> m a -> m b ------ coBind (extend) (Co Monad)
 
